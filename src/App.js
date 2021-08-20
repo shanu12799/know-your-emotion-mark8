@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './App.css';
-import emoticon from './Images/emoticon.jpg'
 import emoticonBackground from './Images/emoji-framed.jpg'
 
 
@@ -12,7 +11,6 @@ const emojiDictionary = {
   "😔": "sad",
   "🥡": "takeout box",
   "❤️": "love",
-  "😂": "face with tears of joy",
   "😑": "annoyance",
   "😁": "beaming face with smiling eyes",
 
@@ -25,7 +23,6 @@ const emojiDictionary = {
   "🙂": "slightly smiling face",
   "🙃": "upside-down face",
   "😉": "winking face",
-  "😊": "smiling face with smiling eyes",
   "😇": "smiling face with halo",
   "🥰": "smiling face with hearts",
   "😍": "smiling face with heart-eyes",
@@ -43,12 +40,11 @@ const emojiDictionary = {
   "🤔": "thinking face",
   "🤐": "zipper-mouth face",
   "🤨": "face with raised eyebrow",
-  "😑": "expressionless face",
   "😶": "face without mouth",
   "😏": "smirking face",
   "🙄": "face with rolling eyes",
   "😌": "relieved face",
-  "😔": "pensive face",
+
   "😪": "sleepy face",
   "🤤": "drooling face",/** add some more to show how the app now expands when there's new data */
 };
@@ -94,8 +90,8 @@ function App() {
       <h3 style={{ paddingTop: '10px' }}> {meaning} </h3>
       <div style={{ width: '70%', textAlign: 'center', margin: '0 auto', paddingTop: '10px' }}>
         {
-          emojis.map((emoji) => (
-            <span
+          emojis.map((emoji, index) => (
+            <span key={index}
               onClick={() => emojiClickHandler(emoji)}
               style={{ fontSize: "2rem", padding: "0.5rem", cursor: "pointer" }}
             >
